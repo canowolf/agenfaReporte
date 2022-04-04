@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Agenda Block</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="module" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="display-3">Atencion entrante</h1>
+                <p class="lead">Genesys</p>
+                <hr class="my-2">
+                <p>Herramientas</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    Registrar
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Llamada entrante (Genesys) </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="javascript:void(0);" class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="nombreCall">Nombre completo</label>
+                                            <input type="text" class="form-control" id="nombreCall"
+                                                placeholder="Cliente" required>
+                                            <div class="invalid-feedback">
+                                                Proporcione nombre del cliente.
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="titularCheck">
+                                                <label class="form-check-label" for="titularCheck">
+                                                    Titular de Línea
+                                                </label>
+                                            </div>
+                                            <div class="valid-feedback">
+                                                ¡Se ve bien!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nroConsultaCall">Numero en Consulta</label>
+                                            <input type="number" class="form-control" id="nroConsultaCall"
+                                                placeholder="01 000000" required>
+                                            <div class="valid-feedback">
+                                                ¡Se ve bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Proporcione Nro. asociado al servicio.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nroIdentificacionCall">DNI / RUC</label>
+                                            <input type="number" class="form-control" id="nroIdentificacionCall"
+                                                placeholder="77777777" required>
+                                            <div class="valid-feedback">
+                                                ¡Se ve bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Proporcione Nro. de identificación.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="notaCasoCall">Nota de caso:</label>
+                                            <textarea class="form-control" id="notaCasoCall"
+                                                placeholder="Problema del cliente" required></textarea>
+                                            <div class="valid-feedback">
+                                                ¡Se ve bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Proporcione el problema o reclamo del servicio que expresa el cliente.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nroReferencia">Numero de referencia</label>
+                                            <input type="number" class="form-control" id="nroReferencia"
+                                                placeholder="999 999 999" required>
+                                            <div class="valid-feedback">
+                                                ¡Se ve bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Proporcione Nro. adicional de contacto.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nroPeticion">N° Requerimiento ó Solicitud</label>
+                                            <input type="text" class="form-control" id="nroPeticion"
+                                                placeholder="xxxxxxxxxxxx">
+                                            <div class="valid-feedback">
+                                                ¡Se ve bien!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nroAni">ANI Llamada</label>
+                                            <input type="number" class="form-control" id="nroAni"
+                                                placeholder="NAC Gestión" required>
+                                            <div class="invalid-feedback">
+                                                Proporcione ANI del Genesys.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nroConnid">CONNID</label>
+                                            <input type="text" class="form-control" id="nroConnid"
+                                                placeholder="xxxx@xxxx / 11111111" required>
+                                            <div class="invalid-feedback">
+                                                Proporcione CONNID del Genesys.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 mb-3">
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="clienteFueraPlazo">
+                                                <label class="form-check-label" for="clienteFueraPlazo">
+                                                    Cliente tiene pendiente fuera de plazo
+                                                </label>
+                                                <div class="invalid-feedback">
+                                                    You must agree before submitting.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="accordianId" role="tablist" aria-multiselectable="true"
+                                            class="modal-fueraPlazo">
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="section1HeaderId">
+                                                    <h5 class="mb-0 tt-h5">
+                                                        <a data-toggle="collapse" data-parent="#accordianId"
+                                                            href="#section1ContentId" aria-expanded="true"
+                                                            aria-controls="section1ContentId">
+                                                            Fuera de plazo
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                                <div id="section1ContentId" class="collapse in" role="tabpanel"
+                                                    aria-labelledby="section1HeaderId">
+                                                    <div class="card-body">
+                                                        <label for="">Indicar que el caso sera atendio en un plazo menor
+                                                            a 24 hrs (Solo Averia y BO). No comercial</label>
+                                                        <div class="form-row">
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="tipo-pendiente">¿Tipo de
+                                                                    pendiente?</label>
+                                                                <select class="form-control" name="Pendiente"
+                                                                    id="tipo-pendiente">
+                                                                    <option selected value="" style="display: none;">
+                                                                        Selecciona
+                                                                    </option>
+                                                                    <option value="Requerimiento">Requerimiento
+                                                                    </option>
+                                                                    <option value="Back Office">Back Office</option>
+                                                                </select>
+                                                                <div class="valid-feedback">
+                                                                    ¡Se ve bien!
+                                                                </div>
+                                                                <div class="invalid-feedback">
+                                                                    ¡Selecciona uno!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="rqFechaRegistro">Fecha de
+                                                                    Registro</label>
+                                                                <input type="date" class="form-control" name=""
+                                                                    id="rqFechaRegistro">
+                                                                <div class="valid-feedback">
+                                                                    ¡Se ve bien!
+                                                                </div>
+                                                                <div class="invalid-feedback">
+                                                                    ¡Fija la fecha de registro!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="tipo-tecnologia">Tecnología</label>
+                                                                <select class="form-control" name="Tecnologia"
+                                                                    id="tipo-tecnologia">
+                                                                    <option selected value="" style="display: none;">
+                                                                        Selecciona
+                                                                    </option>
+                                                                    <option value="HFC">HFC
+                                                                    </option>
+                                                                    <option value="COBRE">COBRE</option>
+                                                                    <option value="CATV">CATV</option>
+                                                                    <option value="VOIP">VOIP</option>
+                                                                    <option value="GPON">GPON</option>
+                                                                    <option value="DTH">DTH</option>
+                                                                </select>
+                                                                <div class="valid-feedback">
+                                                                    ¡Se ve bien!
+                                                                </div>
+                                                                <div class="invalid-feedback">
+                                                                    ¡Selecciona uno!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="tipo-contrato">Contrato</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="tipo-contrato" placeholder="RED CLIENTE">
+                                                                    <div class="valid-feedback">
+                                                                        ¡Se ve bien!
+                                                                    </div>
+                                                                    <div class="invalid-feedback">
+                                                                        Ingresa la constrata asignada
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <button style='display: none;' class="btn btn-primary" type="submit"
+                                        id="guardar-form">Submit form</button>
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Minimizar</button>
+                                <button type="button" class="btn btn-danger" id="borrar-entrante">Limpiar</button>
+                                <button type="button" class="btn btn-primary" id="vista-general">Vista General</button>
+                                <button type="button" class="btn btn-success" id="guardar-entrante">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" name="" id="llamadasRegistradas" class="btn btn-primary btn-lg" btn-lg
+                    btn-block">Llamadas atendidas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
