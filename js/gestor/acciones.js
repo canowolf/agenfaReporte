@@ -2,6 +2,44 @@
 
 var registroEntrantes = JSON.parse(localStorage.getItem("Llamadas registradas"));
 
+function escalarRegistro(btn, fila, datos) {
+
+    const { tiempo, nombre, fijo, identificación, nota, peticion, referencia, reporte } = datos;
+    
+    var modalBody = document.getElementsByClassName("modal-body")[0].getElementsByClassName("container-fluid")[0];
+    
+    
+    btn.addEventListener('click', function () {
+        modalBody.innerHTML = ""; 
+        registroEntrantes.forEach(function (valor, indice) {
+
+            if (tiempo == valor.tiempo && nombre == valor.nombre) {
+
+                for (const valor in datos) {
+
+                    if(valor != "reporte" && valor != "escalar" && valor != "tiempo" && valor != "ani" && valor != "connid" && valor != "titular"){
+
+                        var parrafo = document.createElement("p");
+                        parrafo.innerText = valor +": "+datos[valor];
+                        modalBody.appendChild(parrafo);
+                    }
+                    
+                    if(valor == "reporte"){
+                        let req = datos[valor];
+                        for(const value in req){
+                            var parr = document.createElement("p");
+                            parr.innerText =  value +": "+req[value];
+                            modalBody.appendChild(parr);
+                        }
+                    }
+                    
+                }
+
+            }
+        });
+    });
+};
+
 function verRegistro(btn, fila, datos) {
     const { tiempo, nombre, fijo, identificación, nota, peticion, referencia, reporte } = datos;
 
@@ -17,7 +55,7 @@ function verRegistro(btn, fila, datos) {
 
                 for (const valor in datos) {
 
-                    if(valor != "reporte" && valor != "escalar" && valor != "tiempo" && valor != "ani" && valor != "connid" && valor != "titular"){
+                    if(valor != "reporte" && valor != "escalar"){
 
                         var parrafo = document.createElement("p");
                         parrafo.innerText = valor +": "+datos[valor];
@@ -67,5 +105,6 @@ function eliminarRegistro(btn, fila, datos) {
 export const btnAcciones = {
     verRegistro,
     editarRegistro,
-    eliminarRegistro
+    eliminarRegistro,
+    escalarRegistro
 };

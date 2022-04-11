@@ -82,14 +82,14 @@ function guardarLlamada() {
         const escalarCaso = document.getElementById("clienteFueraPlazo").checked;
 
         const fechaRegistro = document.getElementById("rqFechaRegistro").value;
+        const [ano, mes, dia] = fechaRegistro.split("-");
+        let invertFR = `${dia}/${mes}/${ano}`;
+
         const tipoContrato = document.getElementById("tipo-contrato").value;
 
         if (escalarCaso == true) {
-
-            agregarFueraPlazo(selectValue("tipo-pendiente"), fechaRegistro, selectValue("tipo-tecnologia"), tipoContrato);
-
+            agregarFueraPlazo(selectValue("tipo-pendiente"), invertFR, selectValue("tipo-tecnologia"), tipoContrato);
             console.log(ReqSolifueraPlazo);
-            
         }
 
         agregarLlamadaEntrante(nombreCall, titularCheck, nroConsultaCall, nroIdentificacionCall, notaCasoCall, nroReferencia, nroPeticion, nroAni, nroConnid, escalarCaso, ReqSolifueraPlazo);
